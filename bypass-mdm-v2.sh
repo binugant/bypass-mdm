@@ -10,14 +10,14 @@ CYAN='\033[1;36m'
 NC='\033[0m'
 
 # Function to get the system volume name
-#get_system_volume() {
-#    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}' | tr -d ' ')
-#    echo "$system_volume"
-#}
 get_system_volume() {
-    system_volume=MacOS
+    system_volume=$(diskutil info / | grep "Device Node" | awk -F': ' '{print $2}' | xargs diskutil info | grep "Volume Name" | awk -F': ' '{print $2}' | tr -d ' ')
     echo "$system_volume"
 }
+#get_system_volume() {
+#    system_volume=MacOS
+#    echo "$system_volume"
+#}
 
 # Get the system volume name
 system_volume=$(get_system_volume)
